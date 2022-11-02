@@ -3,19 +3,13 @@ version: 2.1
 orbs:
  aws-cli: circleci/aws-cli@3.1.3
  
-# workflows:
-#   clean_test_build_&_deploy:
-#     jobs:
-#       - clean
-#       - test:
-#            requires:
-#              - clean
-#       - build:
-#           requires:
-#             - test
-#       - deploy:
-#           requires:
-#             - build     
+workflows:
+  clean_test_build_&_deploy:
+    jobs:
+      - build_client 
+      - build_server:
+                   requires:
+                    - build_client   
      
  
  
