@@ -52,7 +52,7 @@ jobs:
  
  
  build:  # name of job
-  working_directory: ~/
+  working_directory: ~/Incaendo_Client
   executor: aws-cli/default
   steps:
     - checkout:
