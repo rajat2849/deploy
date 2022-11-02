@@ -52,11 +52,11 @@ jobs:
  
  
  build:  # name of job
-  working_directory: ~/Incaendo_Client/
+#   working_directory: 
   executor: aws-cli/default
   steps:
-    - checkout:
-        path: ~/Incaendo_Client/
+    # - checkout:
+    #     path: ~/Incaendo_Client/
     - aws-cli/setup:
         aws-access-key-id: AWS_ACCESS_KEY
         aws-secret-access-key: AWS_SECRET_KEY
