@@ -55,7 +55,7 @@ jobs:
   working_directory: ~/Incaendo_Client
   executor: aws-cli/default
   steps:
-    - checkout:
+    # - checkout:
         # path: ~/Incaendo_Client
     - aws-cli/setup:
         aws-access-key-id: AWS_ACCESS_KEY
