@@ -52,7 +52,7 @@ jobs:
  
  
  build:  # name of job
-  working_directory: ~/deploy/Incaendo_Server/
+  working_directory: ~/deploy
   executor: aws-cli/default
   steps:
     - checkout:
