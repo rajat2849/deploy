@@ -6,7 +6,10 @@ orbs:
 workflows:
   clean_test_build_&_deploy:
     jobs:
-      - build_client 
+      - clean
+      - build_client:
+                  requires:
+                    - clean
       - build_server:
                    requires:
                     - build_client   
@@ -14,21 +17,23 @@ workflows:
  
  
 jobs:
-#  clean:  # name of job
-#   executor: aws-cli/default
-#   steps:
-#     - checkout
-#     - aws-cli/setup:
-#         aws-access-key-id: AWS_ACCESS_KEY
-#         aws-secret-access-key: AWS_SECRET_KEY
-#         aws-region: AWS_REGION_NAME
-#     - run:
-#        name: "ECR Login"
-#        command: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY
-#     - run:
-#        name: "Delete older Image"
-#        command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG
- 
+ clean:  # name of job
+  executor: aws-cli/default
+  steps:
+    - checkout
+    - aws-cli/setup:
+        aws-access-key-id: AWS_ACCESS_KEY
+        aws-secret-access-key: AWS_SECRET_KEY
+        aws-region: AWS_REGION_NAME
+    - run:
+       name: "ECR Login"
+       command: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY
+    - run:
+       name: "Delete client image"
+       command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG_CLIENT
+    - run:
+       name: "Delete server image"
+       command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG_Server
  
  
 #  test:  #name of job
