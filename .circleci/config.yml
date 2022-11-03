@@ -33,7 +33,7 @@ jobs:
        command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG_CLIENT
     - run:
        name: "Delete server image"
-       command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG_SERVER
+       command: aws ecr batch-delete-image --repository-name $APP_NAME --image-ids imageTag=$IMAGE_TAG_SERVER 
  
  
 #  test:  #name of job
