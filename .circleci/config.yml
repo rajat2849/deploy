@@ -102,7 +102,18 @@ jobs:
 #                  aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY &&                  
 #                  docker ps -aq | xargs docker stop | xargs docker rm &&
 #                  docker images -aq | xargs docker image rm &&
-#                  docker run -d -p 80:80 $ECR_REGISTRY/$APP_NAME:$IMAGE_TAG"
+#                  rm docker-compose.yml &&
+#                  cat > 'version:"3"
+#                   services
+#                    frontend
+#                         image 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:client_image
+#                         ports
+#                          - "3000:80"
+#                    backend
+#                       image 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
+#                       ports
+#                          - "5000:5000"' >> docker-compose.yml "
+                 
 
 
 
@@ -111,7 +122,3 @@ jobs:
 
 
 
-# Access Key ID:
-# AKIAU35TJSOVE2BUDJGA
-# Secret Access Key:
-# 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
