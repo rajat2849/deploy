@@ -122,9 +122,12 @@ jobs:
                      backend:
                         image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
                         ports:
-                           - "5000:5000"   | docker-compose up -d "
-
-
+                           - "5000:5000"   &&  docker-compose up -d "
+   #   - run:
+   #       name: "Deploying the app into AWS EC2"
+   #       command: ssh -v -o StrictHostKeyChecking=no ec2-user@65.0.129.112 "
+   #                docker-compose up -d
+ 
                  
 
 
