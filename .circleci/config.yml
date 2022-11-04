@@ -123,7 +123,7 @@ jobs:
                      image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
                      ports:
                         - "5000:5000"    &&   
-                 docker-compose.yml "
+                 docker-compose up -d  "
 
 
                  
