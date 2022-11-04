@@ -110,24 +110,24 @@ jobs:
                  aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $ECR_REGISTRY &&                  
                  docker ps -aq | xargs docker stop | xargs docker rm &&
                  docker images -aq | xargs docker image rm &&
-                 sudo rm docker-compose.yml && 
-                 sudo tee -a docker-compose.yml \<<EOF
+                 rm docker-compose.yml && 
+                 tee -a docker-compose.yml \<<EOF
 
-                  version: '3'
-                  services:
-                  frontend:
-                     image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:client_image
-                     ports:
-                     - "3000:80"
-                  backend:
-                     image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
-                     ports:
-                        - "5000:5000"    &&   
+                  "version: '3'
+                     services:
+                     frontend:
+                        image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:client_image
+                        ports:
+                        - "3000:80"
+                     backend:
+                        image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
+                        ports:
+                           - "5000:5000" "   
+                 &&   
                  docker-compose up -d  "
 
 
                  
-
 
 
   
