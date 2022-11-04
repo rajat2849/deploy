@@ -114,7 +114,7 @@ jobs:
                  tee -a docker-compose.yml \<<EOF
 
                   version: 'rajat'
-                     services:
+                  services:
                      frontend:
                         image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:client_image
                         ports:
