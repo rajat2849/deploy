@@ -111,7 +111,7 @@ jobs:
                  docker ps -aq | xargs docker stop | xargs docker rm &&
                  docker images -aq | xargs docker image rm &&
                  rm docker-compose.yml && 
-                 tee -a docker-compose.yml <<EOF
+                 tee -a docker-compose.yml \<<EOF
 
                   version: '3'
                   services:
