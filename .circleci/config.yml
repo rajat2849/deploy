@@ -113,7 +113,7 @@ jobs:
                  rm docker-compose.yml && 
                  tee -a docker-compose.yml \<<EOF
 
-                  "version: '3'
+                  version: 'rajat'
                      services:
                      frontend:
                         image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:client_image
@@ -122,9 +122,7 @@ jobs:
                      backend:
                         image: 334846596010.dkr.ecr.ap-south-1.amazonaws.com/data:server_image
                         ports:
-                           - "5000:5000" "   
-                 &&   
-                 docker-compose up -d  "
+                           - "5000:5000"  " 
 
 
                  
