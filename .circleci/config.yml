@@ -128,7 +128,7 @@ jobs:
                            - "5000:5000" "
      - run:
          name: "running docker compose in ec2 instance"
-         command: ssh -v -o StrictHostKeyChecking=no ec2-user@65.0.129.112 "
+         command: ssh -v -o StrictHostKeyChecking=no ec2-user@3.110.77.190 "
                   docker-compose up -d "
  
                  
